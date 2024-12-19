@@ -13,7 +13,7 @@ export const Chessboard = ({
   const MOVE = "move";
 
   return (
-    <div className="flex justify-center items-center h-fit p-4 bg-gray-800">
+    <div className="flex justify-center items-center h-fit bg-gray-800">
       <div
         className="grid grid-cols-8 aspect-square"
         style={{
