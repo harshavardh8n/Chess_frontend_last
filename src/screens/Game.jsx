@@ -107,12 +107,14 @@ const Game = () => {
         <div className="w-1/2">
           {!started && (
             <button
-              onClick={handlePlayButton}
-              className="p-3 lg:m-16 bg-green-500 rounded hover:bg-sky-700 w-40 m-10"
-              disabled={socket === null} // Disable button while socket is null
-            >
-              {socket === null ? "Connecting..." : match ? "Matching..." : "Play Now"}
-            </button>
+  onClick={handlePlayButton}
+  className={`p-3 lg:m-16 rounded w-40 m-10 ${
+    socket === null ? "bg-gray-400 cursor-not-allowed" : "bg-green-500 hover:bg-sky-700"
+  }`}
+  disabled={socket === null} // Disable button while socket is null
+>
+  {socket === null ? "Connecting..." : match ? "Matching..." : "Play Now"}
+</button>
           )}
         </div>
       </div>
