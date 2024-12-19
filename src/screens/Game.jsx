@@ -53,6 +53,7 @@ const Game = () => {
           navigate("/");
           break;
         }
+
         case GAME_ABANDONED: {
           // const { message } = message.payload;
           // console.log("Game over");
@@ -108,14 +109,15 @@ const Game = () => {
             <button
               onClick={handlePlayButton}
               className="p-3 lg:m-16 bg-green-500 rounded hover:bg-sky-700 w-40 m-10"
+              disabled={socket === null} // Disable button while socket is null
             >
-              {match ? "Matching..." : "Play Now"}
+              {socket === null ? "Connecting..." : match ? "Matching..." : "Play Now"}
             </button>
           )}
         </div>
       </div>
     </div>
-  );
+  );  
 };
 
 export default Game;
