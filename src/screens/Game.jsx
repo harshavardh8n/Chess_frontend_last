@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const INIT_GAME = "init_game";
 const MOVE = "move";
 const GAME_OVER = "game_over";
+const GAME_ABANDONED = "game_abondoned"
 
 const Game = () => {
   const socket = useSocket();
@@ -49,6 +50,13 @@ const Game = () => {
           alert(`Game over. The winner is ${winner}`);
           setChess(new Chess()); // Reset the chess game
           setBoard(new Chess().board()); // Reset the board
+          navigate("/");
+          break;
+        }
+        case GAME_ABANDONED: {
+          // const { message } = message.payload;
+          // console.log("Game over");
+          alert("Your opponent has been disconnected, The game has been ended");
           navigate("/");
           break;
         }
